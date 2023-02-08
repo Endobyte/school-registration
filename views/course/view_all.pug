@@ -2,6 +2,7 @@ extends ../layout
 
 block content
     h3 Courses
+    a(href='/courses/add') Add New Course
     table
         thead
             tr
@@ -15,4 +16,5 @@ block content
                     td= course.name
                     td= course.instructor_name
                     td= course.department
-                    // TODO continue on slide 23
+                    td
+                        a(href=`/courses/profile/${course.id}`) View Course

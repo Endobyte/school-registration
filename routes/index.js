@@ -9,4 +9,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/courses', courseController.viewAll);
 router.get('/courses/profile/:id', courseController.viewProfile);
+router.get('/courses/edit/:id', courseController.renderEditForm);
+router.get('/courses/add', courseController.renderAddForm);
+router.get('/courses/delete/:id', courseController.deleteCourse);
+router.post('/courses/edit/:id', courseController.updateCourse);
+router.post('/courses/add', courseController.addCourse);
 module.exports = router;
