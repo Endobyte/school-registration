@@ -8,8 +8,10 @@ module.exports.viewAll = async function (req, res) {
 
 // profile
 module.exports.viewProfile = async function (req, res) {
-    const student = await Student.findByPk(req.params.id);
-    res.render('student/profile', {student})
+    const course = await Course.findByPk(req.params.id, {
+        include: 'students'
+    });
+    res.render('course/profile', {course})
 }
 
 // render add
