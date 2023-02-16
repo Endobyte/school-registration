@@ -9,8 +9,10 @@ module.exports.viewAll = async function (req, res) {
 
 // profile
 module.exports.viewProfile = async function (req, res) {
-    const course = await Course.findByPk(req.params.id);
-    res.render('course/profile', {course});
+    const course = await Course.findByPk(req.params.id, {
+        include: 'students'
+    });
+    res.render('course/profile', {course})
 }
 
 // render add form
